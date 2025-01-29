@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Face Measurement</title>
+    <style>
+      .container {
+        margin: 20px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      video,
+      canvas {
+        border: 2px solid #333;
+        margin: 10px;
+        width: 400px; /* Fixed smaller width */
+        height: 300px; /* Fixed smaller height */
+        object-fit: cover; /* Maintain aspect ratio */
+      }
+      button {
+        padding: 10px 20px;
+        margin: 10px;
+        cursor: pointer;
+      }
+      .results {
+        margin-top: 20px;
+        padding: 15px;
+        background: #f0f0f0;
+        width: 400px; /* Match video/canvas width */
+      }
+      #video {
+        transform: scaleX(-1); /* Mirror the video */
+      }
+      #canvas {
+        transform: scaleX(-1); /* Mirror the canvas too */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <video id="video" autoplay playsinline></video>
+      <canvas id="canvas"></canvas>
+      <div>
+        <button id="captureBtn">Capture Photo</button>
+        <button id="retakeBtn" style="display: none">Retake Photo</button>
+      </div>
+      <div class="results">
+        <h3>Measurements:</h3>
+        <p>Face Width: <span id="width">-</span> cm</p>
+        <p>Face Height: <span id="height">-</span> cm</p>
+        <p>Face Shape: <span id="shape">-</span></p>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
